@@ -4,5 +4,5 @@
 # Project specific code goes here
 #
 # Project name
-proj="EarthOS"
+proj="My OS" # << your OS name
 # Custom code
