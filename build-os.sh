@@ -2,28 +2,37 @@
 
 # PowerSlash OS Builder
 # 2020 - adazem009
+cd "$(dirname $BASH_SOURCE)"
+if ! [ -d "./build" ]; then
+	echo "Couldn't find the build directory! Did you run sync.sh?"
+	echo "Aborting build."
+	exit -3
+fi
+echo "---------------------------"
+echo "Looking for dependencies..."
+if [ -d "./build/FSSC-Builder" ]; then
+	echo "Found FSSC-Builder"
+else
+	echo "You're missing FSSC-Builder in your build directory! Please run sync.sh."
+	exit -4
+fi
+if [ -d "./build/PowerSlash" ]; then
+	echo "Found PowerSlash"
+else
+	echo "You're missing PowerSlash in your build directory! Please run sync.sh."
+	exit -4
+fi
+echo "---------------------------"
+echo "Building OS..."
 chmod +x ./setup.sh
 source ./setup.sh
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
-if [ -d "./build" ]; then
-	rm -rf ./build
-fi
 if [ -f "./${proj}.fssc" ]; then
 	rm "./${proj}.fssc"
 fi
-mkdir ./build
-git clone https://github.com/adazem009/PowerSlash ./build/PowerSlash
-git clone https://github.com/adazem009/FSSC-Builder ./build/FSSC-Builder
-echo "Copying files..."
-rm "./build/FSSC-Builder/project.conf"
-rm -rf "./build/FSSC-Builder/config"
-rm -rf "./build/FSSC-Builder/content"
-cp ./project.conf "./build/FSSC-Builder/project.conf"
-cp -r ./config "./build/FSSC-Builder/config"
-mkdir "./build/FSSC-Builder/content"
 echo "Compiling project..."
 src=$(pwd)
 parts=()

@@ -27,10 +27,17 @@ echo "/boot/entry.conf" > ./content/os/ebl/entries.list #Optional - this creates
 ```
 Change the value of `proj` to your OS name. Spaces are not recommended, but they might work! Then, replace `os` in the paths with the path you assigned for your partition.
 
+## sync.sh
+You can use the `sync.sh` file to sync your own dependencies. Just read the comments inside this file and you're good to go.
 ## Building
-After you configured the disks, partitions, setup.sh and put your OS code in the content directory, you're now ready to build your operating system and create a PC code.
+Before you can build, you need to download the required sources. `sync.sh` script will do this for you. Just run it and you can continue:
+```
+chmod +x sync.sh
+./sync.sh
+```
+After you configured the disks, partitions, setup.sh, synced the sources and put your OS code in the content directory, you're now ready to build your operating system and create a PC code.
 
-The `build-os.sh` script will do everything for you. Just make sure you run it from the PowerSlash-Builder directory.
+The `build-os.sh` script will do everything for you. Just make sure you run it from the PowerSlash-Builder directory. It should work outside it, but it isn't recommended.
 ```
 chmod +x build-os.sh
 ./build-os.sh
