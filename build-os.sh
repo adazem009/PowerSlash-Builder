@@ -86,7 +86,7 @@ while ((i1 < $((${#parts[@]})))); do
 					NAME="$EXT"
 					EXT=""
 				fi
-				if [[ "$EXT" = "pwsl" ]]; then
+				if [[ "$EXT" = "pwsl" ]] || [[ "$EXT" = "PWSL" ]] || [[ "$EXT" = "pwsle" ]] || [[ "$EXT" = "PWSLE" ]]; then
 					echo "Compiling file ${dirs[$((i4-1))]}/${partfiles[$((i5-1))]}"
 					cp "${dirs[$((i4-1))]}/${partfiles[$((i5-1))]}" ../../build/PowerSlash/
 					oldcd=$(pwd)
@@ -116,7 +116,11 @@ while ((i1 < $((${#parts[@]})))); do
 						NAME="$EXT"
 						EXT=""
 					fi
-					mv "../../build/PowerSlash/output/${NAME}.smc" "../../build/FSSC-Builder/${parts[$((i1-1))]}/${dirs[$((i4-1))]}/${NAME}.smc"
+					if [[ "$EXT" = "pwsle" ]] || [[ "$EXT" = "PWSLE" ]]; then
+						mv "../../build/PowerSlash/output/$NAME" "../../build/FSSC-Builder/${parts[$((i1-1))]}/${dirs[$((i4-1))]}/$NAME"
+					else
+						mv "../../build/PowerSlash/output/${NAME}.smc" "../../build/FSSC-Builder/${parts[$((i1-1))]}/${dirs[$((i4-1))]}/${NAME}.smc"
+					fi
 				else
 					echo "Copying file ${dirs[$((i4-1))]}/${partfiles[$((i5-1))]}"
 					cp "${dirs[$((i4-1))]}/${partfiles[$((i5-1))]}" "../../build/FSSC-Builder/${parts[$((i1-1))]}/${dirs[$((i4-1))]}/${partfiles[$((i5-1))]}"
