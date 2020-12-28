@@ -8,8 +8,8 @@ fi
 mkdir "${SRC}/build"
 
 # Required dependencies - do NOT remove them!
-git clone https://github.com/adazem009/PowerSlash "$SRC/PowerSlash"
-git clone https://github.com/adazem009/FSSC-Builder "$SRC/FSSC-Builder"
+git clone https://github.com/adazem009/PowerSlash "$SRC/build/PowerSlash"
+git clone https://github.com/adazem009/FSSC-Builder "$SRC/build/FSSC-Builder"
 rm "$SRC/build/FSSC-Builder/project.conf"
 rm -rf "$SRC/build/FSSC-Builder/config"
 rm -rf "$SRC/build/FSSC-Builder/content"
