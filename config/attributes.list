@@ -1,3 +1,4 @@
+#!/bin/bash
 ### DO NOT REMOVE THE FIRST LINES ###
 fattn=()
 fatt=()
