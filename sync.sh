@@ -1,3 +1,4 @@
+#!/bin/bash
 ### You can add your own dependencies here ###
 # Example: git clone --single-branch --branch <branch> <URL to your repository> <path>
 # $SRC is the PowerSlash-Builder source tree path.
