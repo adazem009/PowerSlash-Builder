@@ -24,8 +24,10 @@ else
 fi
 echo "---------------------------"
 echo "Building OS..."
-rm -rf "./build/FSSC-Builder/content" && mkdir "./build/FSSC-Builder/content"
-chmod +x ./setup.sh
+rm -rf "./build/FSSC-Builder/content" "./build/FSSC-Builder/config" "./build/FSSC-Builder/project.conf"
+mkdir "./build/FSSC-Builder/content"
+cp -r ./config "./build/FSSC-Builder/"
+cp ./project.conf "./build/FSSC-Builder/"chmod +x ./setup.sh
 source ./setup.sh
 RED='\033[0;31m'
 GREEN='\033[0;32m'
